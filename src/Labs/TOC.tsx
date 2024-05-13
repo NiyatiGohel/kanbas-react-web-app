@@ -8,9 +8,7 @@ export default function TOC() {
         <li><a id="wd-a3" href="#/Labs/Lab3">Lab 3</a></li>
         <li><a id="wd-k"  href="#/Kanbas">Kanbas</a></li>
         <li><a id="wd-github"  href="https://github.com/NiyatiGohel/kanbas-react-web-app">GITHUB</a></li>
-        
-
-      </ul>
+    </ul>
     );
   }
   
