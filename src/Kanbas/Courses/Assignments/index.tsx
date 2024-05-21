@@ -37,7 +37,7 @@ export default function Assignments() {
         </div> </div>
         
         <ul id="wd-assignment" className="list-group rounded-0">
-        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+        <li className="wd-module list-group-item p-0 mb-6 fs-6 border-gray">
         <div className="wd-title p-3 ps-1 bg-secondary bg-light w-100 d-flex align-items-center" 
         style={{justifyContent:"space-between"}}>
           <div >
