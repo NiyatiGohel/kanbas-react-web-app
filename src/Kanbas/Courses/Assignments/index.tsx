@@ -11,7 +11,7 @@ export default function Assignments() {
     return (
       
       <div id="wd-assignments">
-        <div style={{marginBottom: "20px"}}>
+        <div style={{marginBottom: "50px"}}>
         <div className="d-flex align-items-center mb-3">
           <div className = "w-100 d-flex"style={{justifyContent:"space-between"}}>
       <div className="input-group" style={{ width: '300px' }}>
@@ -72,7 +72,7 @@ export default function Assignments() {
               A1 
             </a> 
             <p> <span className="text-danger">
-              Multiple Modules </span>| <b>Not available until</b> May 5 at 11:59 pm&nbsp;|<br/><b>Due&nbsp;</b>May 13 at 11:59pm&nbsp;|&nbsp;100 pts</p>          
+              Multiple Modules </span>| <b>Not available until</b> May 6 at 11:59 pm&nbsp;|<br/><b>Due&nbsp;</b>May 13 at 11:59pm&nbsp;|&nbsp;100 pts</p>          
             </div></div> <LessonControlButtons /></div>
             
         </li>
