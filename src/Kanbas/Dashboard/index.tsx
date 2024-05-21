@@ -25,7 +25,7 @@ export default function Dashboard() {
           
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
           <div className="card">
-            <img src="images/webdevelopment.jpg" />
+            <img src="images/webdevelopment.jpg" style={{width:"100%", height:"150px"}} />
             <div  className="card-body">
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1234/Home" style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
@@ -37,11 +37,12 @@ export default function Dashboard() {
               <a href="#/Kanbas/Courses/1234/Home"  className="btn btn-primary"> Go </a>
             </div>
             </div>
+            
           </div>
           
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
           <div className="card">
-            <img src="images/AI.jpg" />
+            <img src="images/AI.jpg" style={{width:"100%", height:"150px"}} />
             <div  className="card-body">
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1234/Home" style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
@@ -57,11 +58,11 @@ export default function Dashboard() {
 
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
           <div className="card">
-            <img src="images/AI1.jpg" />
+            <img src="images/AI1.jpg"style={{width:"100%", height:"150px"}} />
             <div  className="card-body">
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1234/Home" style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
-                CS5100 Foundations of Artificial Intelligence
+                CS5100 Foundations of AI
               </a>
               <p className="wd-dashboard-course-title  card-text" >
               Artificial Intelligence
@@ -73,11 +74,11 @@ export default function Dashboard() {
 
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
           <div className="card">
-            <img src="images/NLP.jpg" />
+            <img src="images/NLP.jpg"style={{width:"100%", height:"150px"}} />
             <div  className="card-body">
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1234/Home" style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
-                CS6120 Natural Language Processing
+                CS6120 NLP
               </a>
               <p className="wd-dashboard-course-title  card-text" >
               Natural Language Processing
@@ -89,7 +90,7 @@ export default function Dashboard() {
 
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
           <div className="card">
-            <img src="images/MP.jpg" />
+            <img src="images/MP.jpg" style={{width:"100%", height:"150px"}} />
             <div  className="card-body">
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1234/Home" style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
@@ -105,12 +106,11 @@ export default function Dashboard() {
 
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
           <div className="card">
-            <img src="images/CV.jpeg" />
+            <img src="images/CV.jpeg"style={{width:"100%", height:"150px"}} />
             <div  className="card-body">
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1234/Home" style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
-                CS5300 Pattern recogntion and computer vision
-              </a>
+                CS5300 Pattern recogntion              </a>
               <p className="wd-dashboard-course-title  card-text" >
               Machine Learning
               </p>
@@ -121,11 +121,11 @@ export default function Dashboard() {
 
           <div className="wd-dashboard-course col" style={{ width: "300px" }}>
           <div className="card">
-            <img src="images/CV.jpeg" />
+            <img src="images/CV.jpeg"style={{width:"100%", height:"150px"}} />
             <div  className="card-body">
               <a className="wd-dashboard-course-link"
                 href="#/Kanbas/Courses/1234/Home" style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
-                CS5383 Unsupervised Machine Learning and Data Mining
+                CS5383 Machine Learning
               </a>
               <p className="wd-dashboard-course-title  card-text" >
               Unsupervised Machine Learning
