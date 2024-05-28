@@ -52,7 +52,6 @@ export default function CourseStatus() {
         View Course Notifications
       </button>
       
-      {/* Complete the rest of the buttons */}
     </div>
 
       

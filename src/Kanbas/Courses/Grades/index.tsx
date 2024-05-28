@@ -1,127 +1,108 @@
-import React from 'react';
-import { FaFileImport, FaFileExport, FaFilter, FaSearch, FaCaretDown } from 'react-icons/fa';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { LiaCodeSolid, LiaCogSolid, LiaCogsSolid } from 'react-icons/lia';
-export default function Grades() {
-  return (
-    <div className="container-fluid">
-  <div className="row">
-    <div className="col-md-8 offset-md-2">
-    <div className="btn-group ml-2 d-inline me-1 float-end">
-          <button type="button" className="btn btn-light mr-2">
-          <LiaCogSolid className="mr-1" />
-          </button>
-          </div>
-    <div className="btn-group ml-2 dropdown d-inline me-1 float-end">
-            <button type="button" className="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <FaFileExport className="mr-1" /> Export
-            </button>
-        </div>
-        
-        <div className="btn-group ml-2 d-inline me-1 float-end">
-          <button type="button" className="btn btn-light mr-2">
-          <FaFileImport className="mr-1" /> Import
-          </button>
+import { LiaCogSolid } from "react-icons/lia";
+import { assignments, enrollments, grades, users } from "../../Database"
+import { useParams } from "react-router";
+import { FaCaretDown, FaFileExport, FaFileImport, FaFilter, FaSearch } from "react-icons/fa";
 
-          
-          </div>
-          <br/><br/>
-          
-            <div className="row">
+export default function Grades() {
+    const { cid } = useParams();
+    const courseEnrollments = enrollments.filter((enrollment) => enrollment.course === cid);
+    const student = courseEnrollments.map((student_id) => users.find((user) => user._id === student_id.user));
+    const courseAssignments = assignments.filter((assignment) => assignment.course === cid);
+    const courseGrades = student.map((student) => {
+        const studentGrades = courseAssignments.map((assignment) => {
+            const grade = grades.find((grade) => grade.assignment === assignment._id && grade.student === student?._id);
+            return grade ? grade.grade : "N/A "
+        });
+        return {
+            ...student,
+            grades: studentGrades
+        }
+    });
+
+    return (
+        <div className="container ">
+
+
+
+            <button className="btn btn-secondary float-end">
+                <LiaCogSolid className="mr-1 ml-2" />
+            </button>
+            <button className="btn btn-secondary float-end mx-2 dropdown-toggle" data-toggle="dropdown" >
+                <FaFileExport className="me-1 mr-1 ml-2" />
+                Export
+            </button>
+
+            <button className="btn btn-secondary float-end">
+                <FaFileImport className="me-2 mr-1 ml-2" />
+                Import
+            </button>
+            <br />
+            <div className="row mt-4">
                 <div className="col-md-6">
-                    <h6><b>Students Name</b></h6>
+                    <label htmlFor="wd-student-names" className="form-label"><b>Student Names</b></label>
                     <div className="input-group">
                         <span className="input-group-text"><FaSearch /> </span>
-                        <input placeholder="Search Assignments" type="text" className="form-control" />
-                        <span className="input-group-text"><FaCaretDown /></span>
+                        <select id="wd-student-names" className="form-select">
+                        <option selected>Search Students</option>
+                        <option selected>Search Students</option>
+                    </select>
                     </div>
-                    
                 </div>
                 <div className="col-md-6">
-                    <h6><b>Assignments Name</b></h6>
+                    <label htmlFor="wd-assignment-names" className="form-label"><b>Assignment Names</b></label>
                     <div className="input-group">
-                        <span className="input-group-text"><FaSearch /> </span>
-                        <input placeholder="Search Assignments" type="text" className="form-control" />
-                        <span className="input-group-text"><FaCaretDown /></span>
+                    <span className="input-group-text"><FaSearch /> </span>
+                    <select id="wd-assignment-names" className="form-select">
+                        <option selected>Search Assignments</option>
+                        {courseAssignments.map((assignment) => (
+                            <option key={assignment._id} value={assignment._id}>
+                                {assignment.title}
+                            </option>
+                        ))}
+                    </select>
                     </div>
-                    
                 </div>
             </div>
-            
-        <div><br/>
-                <button type="button" className="btn btn-light ml-2 " style={{ width: "20%" }}>
-                <FaFilter className="mr-1" /> Apply Filters
+            <div className="row my-3 row-cols-auto">
+                <button className="btn btn-light ms-2">
+                    <FaFilter className="mr-1" />
+                    Apply Filters
                 </button>
-              </div><br/>
-        
-    
-        
-        
-        
-          
-        
-      
-      <div className="table-responsive col-lg mb-3">
-        <table className="table-striped table table-bordered mx-0 w-100">
-          <thead>
-            <tr>
-              <th className="mb-3 align-items-center col">Student Names</th>
-              <td scope = "col"className="mx-auto col text-center">A1 SETUP</td>
-              <td scope = "col"  className="px-3 col text-center">A2 HTML</td>
-              <td scope = "col"className="mx-4 col text-center">A3 CSS</td>
-              <td scope = "col" className="px-1 col text-center">A4 BOOTSTRAP</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr >
-              <td className="text-center text-danger w-20 col">Jemi Adam</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center w-20 col"><input type="text" className="form-control text-center" value="88.01"/></td>
-              <td className="text-center w-20 col">72.18%</td>
-              <td className="text-center w-20 col">66.22%</td>
-            </tr>
-            <tr>
-              <td className="text-center text-danger w-20 col">Christina Hiley</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center w-20 col">100%</td>
-            </tr>
-            <tr>
-              <td className="text-center text-danger w-20 col">Sampath Ansari</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center w-20 col">100%</td>
-            </tr>
-            <tr>
-              <td className="text-center text-danger w-20 col">Han Bao</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center w-20 col"><input type="text" className="form-control text-center" value="88.01"/></td>
-              <td className="text-center w-20 col">98.97%</td>
-            </tr>
-            <tr>
-              <td className="text-center text-danger w-20 col">Theodore Brooke Buckie</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center w-20 col">94.67%</td>
-              <td className="text-center w-20 col">98.27%</td>
-              <td className="text-center w-20 col"><input type="text" className="form-control text-center" value="88.01"/></td>
-            </tr>
-            <tr>
-              <td className="text-center text-danger px-3 py-2 w-20 col">Stern Cuz</td>
-              <td className="text-center w-20 col form-control"><input type="text" className="form-control text-center" value="100%"/></td>
-              <td className="text-center w-20 col">94.67%</td>
-              <td className="text-center w-20 col">100%</td>
-              <td className="text-center col-2 col">100%</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  );
+            </div>
+            <div className="row">
+                <div className="table-responsive">
+                    <table className="table table-striped table-bordered ">
+                        <thead>
+                            <tr>
+                                <th scope="col-md-6" className="w-20" style={{ width: "20%" }}>Student Name</th>
+                                {
+                                    courseAssignments && courseAssignments.map((assignment) => (
+                                        <th scope="col" className="w-20 text-center" style={{ width: "20%" }}>
+                                            {assignment.title}<br />
+                                            Out of {assignment.points}
+                                        </th>
+                                    ))
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                courseGrades && courseGrades.map((student) => (
+                                    <tr key={student._id}>
+                                        <th scope="row" className="text-danger">{student.firstName + " " + student.lastName}</th>
+                                        {
+                                            student.grades && student.grades.map((grade, index) => (
+                                                <td key={index} className="text-center">{grade}</td>
+                                            ))
+                                        }
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    );
 }
+
