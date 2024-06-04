@@ -9,6 +9,12 @@ html {
   }
   #root {
     height: 100%; }
+
+    .course-info > a{
+      text-decoration: none;
+      font-size: 14px !important;
+      color: #aba7a7 !important;
+  }
   
     .btn-secondary {
         --bs-btn-color: #000;

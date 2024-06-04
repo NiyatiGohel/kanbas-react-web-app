@@ -1,12 +1,17 @@
 import Lab1 from "./Lab1";
+import store from "./store";
+import { Provider } from "react-redux";
 
 import { Route, Routes, Navigate } from "react-router";
 import TOC from "./TOC";
 import Lab2 from "./Lab2";
 import Lab3 from "./Lab3";
+import Lab4 from "./Lab4";
+
 export default function Labs() {
   return (
-    <div id="wd-labs">
+    <Provider store={store}>
+    <div id="wd-labs" className="container-fluid">
       <h1>Niyati Nilesh Gohel</h1>
       <h1>Labs</h1>
       <TOC />
@@ -15,10 +20,13 @@ export default function Labs() {
         <Route path="Lab1" element={<Lab1 />} />
         <Route path="Lab2" element={<Lab2 />} />
 
-        <Route path="Lab3/*" element={<Lab3 />} />      
+        <Route path="Lab3/*" element={<Lab3 />} /> 
+        <Route path="Lab4/*" element={<Lab4 />} />      
         </Routes>
       <a href="https://github.com/NiyatiGohel/kanbas-react-web-app">
       GITHUB
     </a>
     </div>
+    </Provider>
+
 );}
