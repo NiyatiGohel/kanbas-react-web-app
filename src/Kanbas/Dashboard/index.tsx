@@ -23,7 +23,7 @@ export default function Dashboard(
                 <button className="btn btn-warning float-end me-2"
                         onClick={updateCourse} id="wd-update-course-click">
                     Update
-                </button>
+                </button></h5>
                 <br/>
                 <input value={course.name} className="form-control mb-2"
                        onChange={(e) => setCourse({...course, name: e.target.value})}/>
@@ -32,7 +32,7 @@ export default function Dashboard(
 
                 <hr/>
 
-            </h5>
+            
             <hr/>
             <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
             <hr/>
