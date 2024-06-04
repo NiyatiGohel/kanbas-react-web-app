@@ -4,7 +4,7 @@ import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {updateAssignment} from "./reducer";
 
-export default function AssignmentsEditor() {
+export default function Editor() {
     const {cid} = useParams();
     const {pathname} = useLocation();
     const dispatch = useDispatch();
