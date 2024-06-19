@@ -50,10 +50,8 @@ export default function Courses({ courses }: { courses: any[]; }) {
                      element={<AddAssignment />} />
               <Route path="Grades/" element={<Grades/>} />
               <Route path="People" element={<PeopleTable />} />
-              {/* <Route path="People/:uid" element={<PeopleTable />} /> */}
               <Route path="People/:uid" element={<PeopleTable />} />
 
-              {/* <Route path="/Kanbas/Courses/:cid/People/:uid" element={<PeopleDetails />} /> */}
             </Routes>
             </div>
   </div>
